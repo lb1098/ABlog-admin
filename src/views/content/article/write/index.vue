@@ -60,6 +60,14 @@
             </el-radio-group>
           </el-form-item>
         </el-col>
+        <el-col :span="6">
+          <el-form-item label="状态">
+            <el-radio-group v-model="form.status">
+              <el-radio :key="'0'" :label="'0'">正式文章</el-radio>
+              <el-radio :key="'1'" :label="'1'">草稿</el-radio>
+            </el-radio-group>
+          </el-form-item>
+        </el-col>
 
       </el-row>
       <el-row :gutter="20" />
@@ -116,7 +124,9 @@ export default {
         thumbnail: '',
         isTop: '1',
         isComment: '0',
-        content: ''
+        status: "0",
+        content: '',
+        tags:[],
       },
       categoryList: [],
       tagList: [],
