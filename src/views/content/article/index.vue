@@ -71,6 +71,12 @@
           <el-table-column prop="id" label="博文ID" align="center" />
           <el-table-column prop="title" label="标题" align="center" />
           <el-table-column prop="summary" label="摘要" align="center" />
+          <el-table-column prop="status" label="审核状态" align="center">
+            <template slot-scope="scope">
+              <el-tag v-if="scope.row.status == 0" type="success">正式</el-tag>
+              <el-tag v-if="scope.row.status == 1" type="warning">草稿</el-tag>
+            </template>
+          </el-table-column>
           <el-table-column prop="createTime" label="创建时间" align="center" />
 
           <el-table-column
