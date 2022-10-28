@@ -215,7 +215,7 @@
         <el-row>
           <el-col :span="24">
             <el-form-item label="角色">
-              <el-select v-model="form.roleIds" multiple placeholder="请选择">
+              <el-select v-model="form.roleIds" multiple @change="$forceUpdate()" placeholder="请选择">
                 <el-option
                   v-for="item in roleOptions"
                   :key="item.id"
@@ -246,11 +246,11 @@ import {
   updateUser,
   changeUserStatus
 }
-from '@/api/system/user'
+  from '@/api/system/user'
 import {
   listAllRole
 }
-from '@/api/system/role'
+  from '@/api/system/role'
 export default {
   name: 'User',
   data() {
