@@ -153,7 +153,11 @@ export default {
     getArticle() {
       getArticle(this.aId).then(response => {
         this.form = response
-        this.fileList.push({ name: '缩略图', url: response.thumbnail })
+        if(this.form.thumbnail.length>0){
+          this.fileList.push({ name: '缩略图', url: response.thumbnail })
+        } else {
+          this.form.thumbnail = null;
+        }
       })
     },
     handleSave() {
@@ -190,6 +194,11 @@ export default {
     },
     fileRemove(file, fileList) {
       this.fileList.pop()
+      this.form.thumbnail = ""
+      this.$message({
+        message: '缩略图已清除',
+        type: 'warning'
+      });
     },
     // 绑定@imgAdd event
     addImg(pos, file) {
