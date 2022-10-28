@@ -46,7 +46,7 @@ export const constantRoutes = [
       component: () => import('@/views/dashboard/index'),
       meta: { title: '首页', icon: 'dashboard' }
     }]
-  }
+  },
   // {
   //   path: '/write',
   //   component: () => import('@/views/content/article/write/index'),
@@ -56,6 +56,7 @@ export const constantRoutes = [
 
 const createRouter = () => new Router({
   // mode: 'history', // require service support
+  mode:'hash',
   scrollBehavior: () => ({ y: 0 }),
   routes: constantRoutes
 })
