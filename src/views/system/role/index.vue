@@ -202,7 +202,7 @@ import {
   updateRole,
   changeRoleStatus
 } from '@/api/system/role'
-import { treeselect as menuTreeselect, roleMenuTreeselect } from '@/api/menu'
+import { roleMenuTreeselect } from '@/api/menu'
 
 export default {
   name: 'Role',
@@ -271,9 +271,7 @@ export default {
     },
     /** 查询菜单树结构 */
     getMenuTreeselect() {
-      menuTreeselect().then((response) => {
-        this.menuOptions = response
-      })
+      this.getRoleMenuTreeselect(0);
     },
     // 所有菜单节点数据
     getMenuAllCheckedKeys() {

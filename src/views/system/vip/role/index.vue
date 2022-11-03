@@ -37,7 +37,7 @@
           align="center"
         >
           <template slot-scope="scope">
-            <el-tag v-for="role in scope.row.roles" type="info" plain size="mini" disabled>{{ role.remark }}</el-tag>
+            <el-tag v-for="role in scope.row.roles" type="info" plain size="mini" disabled>{{ role.roleName }}</el-tag>
           </template>
         </el-table-column>
         <el-table-column
@@ -68,7 +68,7 @@
               <el-option
                 v-for="role in roleOptions"
                 :key="role.id"
-                :label="role.remark"
+                :label="role.roleName"
                 :value="role.id">
               </el-option>
             </el-select>
