@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="app-container">
     <h1>稍后更新</h1>
   </div>
 </template>
