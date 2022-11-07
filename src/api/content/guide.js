@@ -52,3 +52,13 @@ export function listGuideArticle(params) {
     params:params
   })
 }
+
+export function deleteGuideArticle(id) {
+  return request({
+    url: '/content/guide/'+id,
+    method: 'delete',
+    headers: {
+      isToken: true
+    },
+  })
+}

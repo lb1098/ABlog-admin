@@ -71,7 +71,7 @@
 <script>
 import Treeselect from '@riophae/vue-treeselect'
 import '@riophae/vue-treeselect/dist/vue-treeselect.css'
-import {  listGuideArticle } from '@/api/content/guide'
+import { deleteGuideArticle, listGuideArticle } from '@/api/content/guide'
 import { delArticle } from '@/api/content/article'
 
 export default {
@@ -114,13 +114,16 @@ export default {
     },
     /** 删除按钮操作 */
     handleDelete(row) {
-      // const ids = row.id || this.ids
-      // this.$modal.confirm('是否确认删除分类编号为"' + ids + '"的数据项？').then(function() {
-      //   return delArticle(ids)
-      // }).then(() => {
-      //   this.getList()
-      //   this.$modal.msgSuccess('删除成功')
-      // }).catch(() => {})
+      const ids = row.id || this.ids
+      this.$modal.confirm('是否确认删除分类编号为"' + ids + '"的数据项？').then(()=>{
+        deleteGuideArticle(ids).then(_=>{
+          this.$notify({
+            type:"success",
+            message:"删除成功"
+          });
+          this.getGuideArticle();
+        })
+      }).catch(() => {})
     }
   },
   mounted() {
