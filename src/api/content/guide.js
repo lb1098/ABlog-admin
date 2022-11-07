@@ -41,3 +41,14 @@ export function deleteNav(id) {
     },
   })
 }
+
+export function listGuideArticle(params) {
+  return request({
+    url: '/content/guide/list',
+    method: 'get',
+    headers: {
+      isToken: true
+    },
+    params:params
+  })
+}
