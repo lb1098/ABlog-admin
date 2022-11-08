@@ -62,3 +62,24 @@ export function deleteGuideArticle(id) {
     },
   })
 }
+
+export function getGuideArticle(id) {
+  return request({
+    url: '/content/guide/'+id,
+    method: 'get',
+    headers: {
+      isToken: true
+    },
+  })
+}
+
+export function saveOrUpdateGuideArticle(data) {
+  return request({
+    url: '/content/guide/saveOrUpdate',
+    method: 'post',
+    headers: {
+      isToken: true
+    },
+    data: data
+  })
+}

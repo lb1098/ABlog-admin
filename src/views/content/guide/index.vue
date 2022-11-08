@@ -8,6 +8,7 @@
     >新增</el-button>
     <el-table :data="articleList" style="width: 100%">
       <el-table-column prop="id" label="ID" align="center" width="80"/>
+      <el-table-column prop="createByNickname" label="用户名" align="center" width="80"/>
       <el-table-column prop="title" label="标题" align="center" />
       <el-table-column label="文章父节点类别" align="center">
         <template slot-scope="scope">
@@ -106,11 +107,11 @@ export default {
     },
     /** 修改按钮操作 */
     handleUpdate(row) {
-      // this.$router.push('/write?id=' + row.id)
+      this.$router.push('/GuideArticle?aId=' + row.id)
     },
-    /** 新增用户 */
+    /** 新增 */
     handleAdd() {
-      // this.$router.push('/write')
+      this.$router.push('/GuideArticle')
     },
     /** 删除按钮操作 */
     handleDelete(row) {

@@ -22,3 +22,10 @@ export function getVipRole(vipId) {
     params: { 'id':vipId },
   })
 }
+
+export function getAllVip() {
+  return request({
+    url: '/system/vip/list',
+    method: 'get',
+  })
+}
